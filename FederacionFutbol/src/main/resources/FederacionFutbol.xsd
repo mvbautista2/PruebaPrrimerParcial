@@ -1,0 +1,58 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://espe.edu.ec/arqsoftware/FederacionFutbol/ws"
+           targetNamespace="http://espe.edu.ec/arqsoftware/FederacionFutbol/ws" elementFormDefault="qualified">
+
+    
+    <xs:element name="obtenerPartidosDisponiblesRequest">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="obtenerLocalidadesDisponiblesRequest">
+         <xs:complexType>
+            <xs:sequence>
+                <xs:element name="codigo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType> 
+    </xs:element>
+    
+
+    <xs:element name="obtenerPartidosDisponiblesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PartidosRS" type="tns:PartidosRS" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="obtenerLocalidadesDisponiblesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="LocalidadesRS" type="tns:LocalidadesRS" minOccurs="0"  maxOccurs= "unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    
+    <xs:complexType name="PartidosRS">
+        <xs:sequence>
+            <xs:element name="codigo" type="xs:string"/>            
+            <xs:element name="equipoLocal" type="xs:string"/>
+            <xs:element name="equipoVisita" type="xs:string"/>
+            <xs:element name="fecha" type="xs:dateTime"/>
+            <xs:element name="lugar" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LocalidadesRS">
+        <xs:sequence>
+            <xs:element name="codigoLocalidad" type="xs:string"/>            
+            <xs:element name="codigo" type="xs:string"/>
+            <xs:element name="disponibilidad" type="xs:integer"/>
+            <xs:element name="precio" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+   
+    
+    
+    
+</xs:schema>
